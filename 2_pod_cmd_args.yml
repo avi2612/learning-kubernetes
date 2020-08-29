@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod3
+spec:
+  containers:
+   - name: busybox-container
+     image: busybox
+
+    # method 1
+    #  command: ["sleep","3600"] # to run only it as as command
+    
+    # method2
+    #  command: ["sleep"] # to run in combo of command and args
+    #  args: ["3600"]
+    
+    # method 3
+     args: ["sleep","3600"] # to run command only as args
+
+
+# docker                      k8                              description
+
+# entrypoint                 command                   command that will be run by container
+
+# cmd                        args                     arguments passed to the container

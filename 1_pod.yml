@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod # indicate k8 should create a pod
+metadata:
+  name: mywebserver2 #name of our object (pod)
+spec:
+  containers: #create container of name as mywebserver
+   - name: mywebserver7
+     image: nginx

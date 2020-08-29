@@ -1,0 +1,31 @@
+# we are replicating template of a pod
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:          # name given to replica set
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  replicas: 5 # total no of replica needed
+
+  selector:
+    matchLabels:
+      tier: frontend
+    # here we are matching the label , where key is tier and value is frontend
+
+
+  template:
+    # here we have template section, it is template associated with resource of pod, every time of pod is same now, just ignore api verion and kind
+
+    # apiVersion: v1
+    # kind: Pod
+    metadata:
+      labels:
+        tier: frontend # this label is associated with pod
+        # replica set count for the pod label and maintain desire state
+    spec:
+      containers:
+      - name: php-redis
+        image: gcr.io/google_samples/gb-frontend:v3

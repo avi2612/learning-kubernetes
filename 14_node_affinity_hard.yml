@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-node-affinity-hard
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disk # condition
+            operator: In # it will select all node which have disk as ssd and create pod
+            values:
+             - ssd # value
+  containers:
+  - name: with-node-affinity-hard
+    image: nginx
+
+
+# operator: NotIn # it will launch pod at every node expect where disk is ssd 

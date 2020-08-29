@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-delta
+spec:
+  # storageClassName: manual , not needed in case of dynamic
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests: # k8 automatically create 5GB volume
+      storage: 5Gi

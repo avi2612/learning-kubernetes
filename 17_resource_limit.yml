@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: avi-pod-5
+spec:
+  containers:
+    - name: avi-container
+      image: nginx
+      resources:
+        requests:
+          memory: "6400Mi" # 64 MB of ram
+          cpu: "0.5" # 50% of cpu
+        limits:
+          memory: "128000Mi"
+          cpu: "1"
+
+# pod will give error when limit(128 mb) is low then request value(11111 mb) 
+# pod will get created but will not get ready when , memeory is high
+# set request ram => 6400
+#        liimimts => 12800
+# create pod 
+# describle pod

@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: avi-daemon-set
+spec:
+  selector:
+    matchLabels:
+      name: avi-antivirus-pod
+  template:
+    metadata:
+      labels:
+        name: avi-antivirus-pod # create one copy of pod of this label on every node
+    spec:
+      containers:
+       - name: antivirus-pod
+         image: nginx

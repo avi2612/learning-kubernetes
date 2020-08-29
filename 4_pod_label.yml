@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod1
+  labels:
+    env: prod
+    app: avi-nginx
+spec:
+  containers:
+   - name: my-nginx
+     image: nginx

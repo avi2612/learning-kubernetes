@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness
+spec:
+  containers:
+   - name: readiness
+     image: ubuntu
+     tty: true
+     readinessProbe:
+      exec:
+        command:
+          - cat
+          - /tmp/healthy
+      initialDelaySeconds: 5
+      periodSeconds: 5
+
+# this container will become ready only if cat command output error code is 0 and when if file get deleted and then it immediatly change errror code to non zero, then container goes again to non ready state
